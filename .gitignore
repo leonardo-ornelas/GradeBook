@@ -1,0 +1,6 @@
+# Temporary files
+**/obj
+# Assemblies
+**/bin
+
+.vscode
