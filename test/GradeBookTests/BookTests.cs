@@ -25,6 +25,7 @@ namespace GradeBookTests
             Assert.Equal(65.4, statistics.Avarage, 1);
             Assert.Equal(80.1, statistics.High, 1);
             Assert.Equal(40.2, statistics.Low, 1);
+            Assert.Equal('D', statistics.Letter);
 
         }
     }
