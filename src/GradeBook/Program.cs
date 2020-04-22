@@ -8,10 +8,29 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("HelloBook");
-            book.AddGrade(200.1);
-            book.AddGrade(50.8);
-            book.AddGrade(10.2);
-            book.AddGrade(70);
+
+            Console.WriteLine("Enter the grade or 'q' to quit");
+            var input = Console.ReadLine();
+            while (input != "q")
+            {
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+                input = Console.ReadLine();
+            }
 
             var statistics = book.GetStatistics();
 
