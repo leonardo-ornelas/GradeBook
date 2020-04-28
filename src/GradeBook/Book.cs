@@ -7,12 +7,40 @@ namespace GradeBook
     public class Book
     {
         List<double> grades;
-        public string Name;
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
 
         public Book(string name)
         {
             grades = new List<double>();
             Name = name;
+        }
+
+        public void AddGrade(char letter)
+        {
+            switch (letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(70);
+                    break;
+                case 'E':
+                    AddGrade(60);
+                    break;
+                case 'F':
+                    AddGrade(50);
+                    break;
+            }
         }
 
         public void AddGrade(double grade)
@@ -21,6 +49,10 @@ namespace GradeBook
             if (grade >= 0 && grade <= 100)
             {
                 grades.Add(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -66,6 +98,8 @@ namespace GradeBook
 
             return result;
         }
+
+        public event GradeAddedDelegate GradeAdded;
 
 
     }

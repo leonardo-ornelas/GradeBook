@@ -28,5 +28,18 @@ namespace GradeBookTests
             Assert.Equal('D', statistics.Letter);
 
         }
+
+
+        public void AddGrade_Letter_ShouldAddCorrectGrade()
+        {
+            //Given
+            var book = new Book("");
+
+            //When
+            book.AddGrade('A');
+
+            //Then
+            Assert.Equal(90.0, book.GetStatistics().Avarage);
+        }
     }
 }
